@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+  <title>What's App</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
+</head>
+
+<body>
+<div class="container-fluid">
+
+  <div class="row">
+
+    <div class="col-sm-12">
+      <div id="chatroom_data" class="chatroom_data">
+
+        <div class="chatroom_name"> 대화방 </div>
+
+        <div class="chat_frame" id="chat-frame">
+          <div class="container-fluid chat_section" id="chat-box">
+            <p class="start-message"> 대화가 시작되었습니다. </p>
+          </div>
+        </div>
+        <div class="type_msg">
+          <input id="chat-outgoing-msg" type="text" class="write_msg" placeholder="메세지를 입력하세요" />
+          <button id="chat-send" class="msg_send_btn" type="button"> 전송 </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+  <script th:src="@{js/chat.js}"></script>
+</body>
+</html>
