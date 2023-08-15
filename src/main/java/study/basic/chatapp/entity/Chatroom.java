@@ -1,11 +1,9 @@
 package study.basic.chatapp.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,18 +12,17 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Builder
-public class Chatroom extends BaseAuditingEntity {
+@ToString
+public class Chatroom extends BaseAuditingEntity{
     @Id @GeneratedValue
     @Column(name = "chatroom_id")
     private Long id;
-
-    @OneToMany(mappedBy = "chatroom")
-    private List<Message> messages = new ArrayList<>();
+    private String title;
+    private Long hostId;
+    private int roomLimit;
+    private LocalDateTime lastChatAt;
 
     @OneToMany(mappedBy = "chatroom")
     private List<UserChatroom> users = new ArrayList<>();
 
-    public void addMsg(Message message) {
-        messages.add(message);
-    }
 }

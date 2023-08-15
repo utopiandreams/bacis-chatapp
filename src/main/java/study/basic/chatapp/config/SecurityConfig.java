@@ -29,13 +29,17 @@ public class SecurityConfig {
                 .formLogin(config -> config
                         .loginPage("/loginPage")
                         .loginProcessingUrl("/loginProc")
-                        .defaultSuccessUrl("/chat")
+                        .defaultSuccessUrl("/chat/lounge")
                         .usernameParameter("username")
                         .passwordParameter("password")
                         .failureForwardUrl("/fail"))
                 .userDetailsService(userDetailService)
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers("/lounge").authenticated()
                         .requestMatchers("/chat/**").authenticated()
+                        .requestMatchers("/api/chat").authenticated()
+                        .requestMatchers("/api/chatroom").authenticated()
+                        .requestMatchers("/api/auth").permitAll()
                         .requestMatchers("/static/**").permitAll()
                         .anyRequest().permitAll());
         return http.build();
@@ -43,9 +47,7 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        System.out.println("bCryptPasswordEncoder = " + bCryptPasswordEncoder);
-        return bCryptPasswordEncoder;
+        return new BCryptPasswordEncoder();
     }
 
     @Bean

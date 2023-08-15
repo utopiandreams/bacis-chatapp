@@ -16,12 +16,9 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        System.out.println("UserDetailServiceImpl.loadUserByUsername 실행");
         User user = userRepository.findByUsername(username).orElseThrow(
                 () -> new IllegalArgumentException("회원 정보 없음")
         );
-        System.out.println("Username = " + user.getUsername());
-        System.out.println("Password = " + user.getPassword());
         return new UserDetailsImpl(user);
     }
 

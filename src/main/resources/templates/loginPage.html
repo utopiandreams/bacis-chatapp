@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8">
     <title> 채팅 어플리케이션 예제 </title>
 </head>
 <body>
 <h1> 채팅방 입장 </h1>
-<div id="msg" style="font-weight: bold"></div>
-<form id="loginForm" th:action="@{/loginProc}" method="post">
+<p id="msg"></p>
+<form id="loginForm" action="/loginProc" method="post">
     <div>
         <input id="username" type="text" name="username" placeholder="대화명" style="width: 150px"/>
     </div>
@@ -17,6 +17,6 @@
     <input type="submit" value="대화방 입장"/>
 </form>
 <button id="join"> 대화명 등록 </button>
-<script th:src="@{js/loginPage.js}"></script>
+<script src="js/loginPage.js"></script>
 </body>
 </html>

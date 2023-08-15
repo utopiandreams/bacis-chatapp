@@ -1,15 +1,16 @@
 package study.basic.chatapp.dto;
 
+
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class ReceiveDto {
-    private String roomId;
-    private String content;
+@Builder
+public class CreateRoomDto {
+    private String title;
+    private int limit;
 }

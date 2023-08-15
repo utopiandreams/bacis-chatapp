@@ -14,14 +14,24 @@ public class MainController {
         return "loginPage";
     }
 
-    @GetMapping("/chat")
-    public String chatHome() {
-        return "chat";
+    @GetMapping("/chat/lounge")
+    public String lounge() {
+        return "lounge";
+    }
+
+    @GetMapping("/chat/{chatroomId}")
+    public String chatroom() {
+        return "chatroom";
+    }
+
+    @GetMapping("/chat/creation")
+    public String creationg() {
+        return "creation";
     }
 
     @GetMapping("/")
     public void index(HttpServletResponse res) throws IOException {
-        res.sendRedirect("/chat");
+        res.sendRedirect("/chat/lounge");
     }
 
 }

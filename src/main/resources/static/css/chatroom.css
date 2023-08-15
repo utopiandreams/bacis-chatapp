@@ -4,19 +4,55 @@ body{
 }
 
 .chatroom_data {
-	padding: 10px;
-	width:100%;
+    padding: 10px;
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
 }
 
-.chatroom_name{
+.chatroom_name {
     font-family: "Nanum Gothic", serif;
     font-size: 25px;
-    text-align: center;
-	background-color: #f8f9fa!important;
-	width:100%;
-	padding: 10px;
-	border-bottom: 1px solid black;
+    font-weight: bold;
+    background-color: #f8f9fa;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid black;
+    display: flex;        /* flexbox를 사용 */
+    justify-content: center; /* 중앙 정렬 */
+    position: relative;   /* 자식 요소의 위치를 상대적으로 설정 */
 }
+
+#room-name-text {
+    text-align: center;
+    flex-grow: 1;         /* 가능한 모든 공간을 차지하도록 설정 */
+}
+
+.go-lounge-btn {
+    position: absolute;  /* 절대 위치 설정 */
+    font-size: 13px;
+    right: 20px;
+    bottom: 10px;
+    min-width: 100px;
+    height: 40px;
+    padding: 5px 10px;   /* 상하, 좌우 패딩 설정 */
+    background: #f5f5f5; /* 버튼 배경색 변경 */
+    color: #333;        /* 글자색 */
+    border: none;        /* 테두리 제거 */
+    border-radius: 5px;  /* 테두리 둥글게 */
+    cursor: pointer;     /* 마우스 오버 시 포인터 모양 */
+    transition: background-color 0.1s; /* 배경색 변환 효과 */
+}
+
+.go-lounge-btn:hover {
+    background-color: #45a049; /* 마우스 오버 시 버튼 배경색 */
+}
+
+
+.go-lounge-btn:hover {
+    background-color: #2980b9;
+}
+
 .chat_frame{
     width: 100%;
     height: 80vh;
@@ -71,7 +107,7 @@ body{
   margin: 8px 5px 0;
 }
 
-.outgoing_msg{
+.outgoing_msg {
     overflow: auto;
     text-align: right;
     margin: 10px 0 10px;
@@ -115,27 +151,29 @@ body{
   color: #4c4c4c;
   font-size: 15px;
   min-height: 48px;
-  width: 90%;
+  width: 85%;
   padding: 10px;
 }
 
-.msg_send_btn {
+.type_msg .msg_send_btn {
     appearance: none;
     box-shadow: none;
     outline: none;
-    background: lightgray;
-  border-radius: 6px;
-  color: black;
-  font-size: 13px;
-  height: 33px;
-  position: absolute;
+    background: #f5f5f5; /* 버튼 배경색 변경 */
+    border: 1px solid #ddd; /* 버튼 테두리 추가 */
+    border-radius: 6px;
+    color: #333; /* 버튼 글자색 변경 */
+    font-size: 13px;
+    height: 33px;
+    position: absolute;
     top: 7px;
-  right: 0;
-  width: 60px;
+    right: 10px; /* 버튼을 왼쪽으로 조금 더 옮김 */
+    width: 60px;
+    transition: 0.3s; /* 부드러운 효과를 위해 추가 */
 }
-.messaging { padding: 0 0 50px 0;}
 
-.msg_history {
-  height: 516px;
-  overflow-y: auto;
+/* 버튼에 마우스를 올렸을 때의 스타일 */
+.type_msg .msg_send_btn:hover {
+    background: #e5e5e5;
+    cursor: pointer;
 }
